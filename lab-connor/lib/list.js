@@ -23,6 +23,17 @@ class List {
     this.length--;
     return poppedItem;
   }
+
+  forEach(callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
+
+    }
+  }
+
+  map(callback) {
+
+  }
 }
 
 module.exports = List;

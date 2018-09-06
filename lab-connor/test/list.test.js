@@ -89,6 +89,40 @@ describe('slice method tests', () => {
 });
 
 describe('forEach method tests', () => {
+  test('forEach(fn) should call the given function once for each item in the list', () => {
+    let list = new List();
+
+    for (let i = 0; i < 10; i++) {
+      list.push('item');
+    }
+    const testFn = jest.fn();
+
+    list.forEach(testFn);
+    expect(testFn).toHaveBeenCalledTimes(10);
+
+  });
+
+  test('forEach(fn) should never call the given function for an empty list', () => {
+    let list = new List();
+
+    const testFn = jest.fn();
+
+    list.forEach(testFn);
+    expect(testFn).not.toHaveBeenCalled();
+  });
+
+  test('forEach() should increment the count for each item in the list', () => {
+    let list = new List();
+    for (let i = 0; i < 10; i++) {
+      list.push('item');
+
+    }
+
+    let count = 0;
+    list.forEach(item => count++);
+    expect(count).toBe(list.length);
+
+  });
 
 });
 
