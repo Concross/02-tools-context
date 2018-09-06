@@ -124,6 +124,18 @@ describe('forEach method tests', () => {
 
   });
 
+  test('forEach() callback should increment each item by one', () => {
+    let list = new List();
+    for (let i = 0; i < 10; i++) {
+      list.push(i);
+    }
+
+    list.forEach(item => list[item]++);
+    expect(list[0]).toBe(1);
+    expect(list[1]).toBe(2);
+
+  });
+
 });
 
 describe('map method tests', () => {
