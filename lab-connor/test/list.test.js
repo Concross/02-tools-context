@@ -65,14 +65,23 @@ describe('pop method tests', () => {
     expect(actual).toBeUndefined();
   });
 
-  test('pop() should remove the last item in the list', () => {
+  test('pop() should return the last item in the list', () => {
     let list = new List();
-    list.push('removed');
+    list.push('returned');
 
     let actual = list.pop();
-    let expected = 'removed';
+    let expected = 'returned';
     expect(actual).toBe(expected);
-  })
+  });
+
+  test('pop() should also remove the last item in the list', () => {
+    let list = new List();
+    list.push('item');
+    list.push('removed');
+    list.pop();
+
+    expect(list).not.toHaveProperty('1');
+  });
 });
 
 describe('slice method tests', () => {

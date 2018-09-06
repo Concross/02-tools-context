@@ -16,7 +16,12 @@ class List {
       return undefined;
     }
 
-    return this[this.length - 1];
+    let poppedItem = this[this.length - 1];
+
+    delete this[this.length - 1];
+
+    this.length--;
+    return poppedItem;
   }
 }
 
