@@ -15,6 +15,8 @@ class List {
     if (!this.length) {
       return undefined;
     }
+
+    return this[this.length - 1];
   }
 }
 
