@@ -22,6 +22,16 @@ describe('constructor tests', () => {
 
 describe('push method tests', () => {
 
+  test('push() should append an item to an empty array and increase the length to 1', () => {
+    let list = new List();
+    list.push('item');
+
+    let actual = list[0];
+    let expected = 'item';
+
+    expect(actual).toBe(expected);
+  });
+
 });
 
 describe('pop method tests', () => {
