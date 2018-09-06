@@ -28,7 +28,32 @@ describe('push method tests', () => {
 
     let actual = list[0];
     let expected = 'item';
+    expect(actual).toBe(expected);
 
+    let actualLength = list.length;
+    let expectedLength = 1;
+    expect(actualLength).toBe(expectedLength);
+  });
+
+  test('push() should append an item to an array of any length and increase the length by 1', () => {
+    let list = new List();
+    for (let i = 0; i < 10; i++) {
+      list.push('item');
+    }
+
+    let actual = list.length;
+    let expected = 10;
+    expect(actual).toBe(expected);
+  });
+
+  test('push() should return the new length of the array', () => {
+    let list = new List();
+    for (let i = 0; i < 10; i++) {
+      list.push('item');
+    }
+
+    let actual = list.push('one more');
+    let expected = 11;
     expect(actual).toBe(expected);
   });
 

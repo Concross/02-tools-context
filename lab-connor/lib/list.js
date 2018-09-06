@@ -8,7 +8,7 @@ class List {
   push(item) {
     this[this.length] = item;
     this.length++;
-    return this;
+    return this.length;
   }
 }
 
