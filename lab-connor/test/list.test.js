@@ -3,7 +3,6 @@
 const List = require('../lib/list');
 
 describe('constructor tests', () => {
-
   test('Should return an instance of List', () => {
     let actual = new List();
     expect(actual).toBeInstanceOf(List);
@@ -21,8 +20,7 @@ describe('constructor tests', () => {
 });
 
 describe('push method tests', () => {
-
-  test('push() should append an item to an empty array and increase the length to 1', () => {
+  test('push() should append an item to an empty list and increase the length to 1', () => {
     let list = new List();
     list.push('item');
 
@@ -35,7 +33,7 @@ describe('push method tests', () => {
     expect(actualLength).toBe(expectedLength);
   });
 
-  test('push() should append an item to an array of any length and increase the length by 1', () => {
+  test('push() should append an item to an list of any length and increase the length by 1', () => {
     let list = new List();
     for (let i = 0; i < 10; i++) {
       list.push('item');
@@ -46,7 +44,7 @@ describe('push method tests', () => {
     expect(actual).toBe(expected);
   });
 
-  test('push() should return the new length of the array', () => {
+  test('push() should return the new length of the list', () => {
     let list = new List();
     for (let i = 0; i < 10; i++) {
       list.push('item');
@@ -60,7 +58,12 @@ describe('push method tests', () => {
 });
 
 describe('pop method tests', () => {
+  test('pop() should return undefined if the list is empty', () => {
+    let list = new List();
 
+    let actual = list.pop();
+    expect(actual).toBeUndefined();
+  });
 });
 
 describe('slice method tests', () => {

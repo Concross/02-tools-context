@@ -10,6 +10,12 @@ class List {
     this.length++;
     return this.length;
   }
+
+  pop() {
+    if (!this.length) {
+      return undefined;
+    }
+  }
 }
 
 module.exports = List;
