@@ -1,0 +1,23 @@
+{
+  "name": "02-tools-context",
+  "version": "1.0.0",
+  "description": "Lab 2 Tools and Context",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest **/*.test.js",
+    "lint": "eslint **/.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Concross/02-tools-context.git"
+  },
+  "author": "Connor Crossley <cacrossley22@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Concross/02-tools-context/issues"
+  },
+  "homepage": "https://github.com/Concross/02-tools-context#readme",
+  "dependencies": {
+    "jest": "^23.5.0"
+  }
+}
