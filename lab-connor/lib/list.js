@@ -18,28 +18,27 @@ class List {
       return undefined;
 
     }
-
     let poppedItem = this[this.length - 1];
-
     delete this[this.length - 1];
-
     this.length--;
+
     return poppedItem;
   }
 
   slice(begin = 0, end = this.length) {
-    let output = new List();
+    let sliceList = new List();
 
     if (end > this.length) {
       end = this.length;
+
     }
     for (let i = begin; i < end; i++) {
-      output.push(this[i]);
+      sliceList.push(this[i]);
 
     }
-    output.length = end - begin;
+    sliceList.length = end - begin;
 
-    return output;
+    return sliceList;
   }
 
   forEach(callback) {
@@ -50,13 +49,11 @@ class List {
   }
 
   map(callback) {
-    let output = new List();
-    for (let i = 0; i < this.length; i++) {
-      output.push(callback(this[i], i));
 
-    }
+    let mapList = new List();
+    this.forEach((item, i) => mapList.push(callback(item, i)));
 
-    return output;
+    return mapList;
   }
 
   reduce(callback, initialValue) {
@@ -64,11 +61,9 @@ class List {
     if (!this.length && !initialValue) {
       throw new TypeError('TypeError');
 
-    } else if (!this.length && !!initialValue) {
-      return initialValue;
-
     } else if (this.length === 1 && !initialValue) {
       return this[0];
+
     }
 
     let accumulator = initialValue || 0;
@@ -81,16 +76,16 @@ class List {
   }
 
   filter(callback, thisArg) {
-    let output = new List();
+    let filterList = new List();
 
     this.forEach((item, i) => {
       if (callback(item, i)) {
-        output.push(item);
+        filterList.push(item);
 
       }
     });
 
-    return output;
+    return filterList;
   }
 }
 
