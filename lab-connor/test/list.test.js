@@ -163,13 +163,22 @@ describe('reduce method tests', () => {
       list.push(i);
 
     }
-
     let actual = list.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
+
     });
     let expected = 45;
     expect(actual).toBe(expected);
+
   });
+
+  test('reduce() should throw TypeError if list is empty and no initial value was given', () => {
+    let list = new List();
+
+    let reducer = jest.fn();
+
+    expect(list.reduce(reducer)).toThrow(TypeError);
+  })
 
 });
 

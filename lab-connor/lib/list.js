@@ -44,10 +44,17 @@ class List {
     return output;
   }
 
-  reduce(callback, initialValue = 0) {
+  reduce(callback, initialValue) {
+
+    if (!this.length && !initialValue) {
+      throw TypeError;
+
+    }
+
     let accumulator = initialValue;
     for (let i = 0; i < this.length; i++) {
       accumulator = callback(accumulator, this[i], i, this);
+
     }
 
     return accumulator;
