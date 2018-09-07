@@ -64,6 +64,19 @@ class List {
 
     return accumulator;
   }
+
+  filter(callback, thisArg) {
+    let output = new List();
+
+    for (let i = 0; i < this.length - 1; i++) {
+      if (callback(this[i], i, this)) {
+        output.push(this[i]);
+
+      }
+    }
+
+    return output;
+  }
 }
 
 module.exports = List;

@@ -204,9 +204,20 @@ describe('reduce method tests', () => {
 
   });
 
-
 });
 
 describe('filter method tests', () => {
+  test('filter() should return an empty list if no items pass test given by callback', () => {
+    let list = new List();
+    for (let i = 0; i < 5; i++) {
+      list.push(2);
+
+    }
+    let actual = list.filter(item => item === 1).length;
+    let expected = 0;
+
+    expect(actual).toBe(expected);
+
+  });
 
 });
