@@ -182,6 +182,15 @@ describe('reduce method tests', () => {
     }).toThrow();
   });
 
+  test('reduce() should just return the initial value when passed an empty list and an initial value without calling the callback', () => {
+    let list = new List();
+    let initValue = 5;
+
+    let reducer = jest.fn();
+    expect(list.reduce(reducer, 5)).toBe(initValue);
+    expect(reducer).not.toHaveBeenCalled();
+  });
+
 });
 
 describe('filter method tests', () => {

@@ -49,6 +49,11 @@ class List {
     if (!this.length && !initialValue) {
       throw new TypeError('TypeError');
 
+    } else if (!this.length && !!initialValue) {
+      return initialValue;
+
+    } else if (this.length === 1 && !initialValue) {
+      return this[0];
     }
 
     let accumulator = initialValue || 0;
