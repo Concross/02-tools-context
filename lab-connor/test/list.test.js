@@ -85,6 +85,31 @@ describe('pop method tests', () => {
 });
 
 describe('slice method tests', () => {
+  test('slice() should begin at index 0 if begin param is left undefined', () => {
+    let list = new List();
+    for (let i = 0; i < 5; i++) {
+      list.push(i);
+
+    }
+    let actual = list.slice(undefined, 2);
+
+    expect(actual[2]).toBeUndefined();
+    expect(actual[1]).toBe(1);
+    expect(actual.length).toBe(2);
+  });
+
+  test('if end param is ommitted, slice() should extract through the end of the list', () => {
+    let list = new List();
+    for (let i = 0; i < 5; i++) {
+      list.push(i);
+
+    }
+    let actual = list.slice(1);
+
+    expect(actual[actual.length - 1]).toBe(4);
+    expect(actual[0]).toBe(1);
+    expect(actual.length).toBe(4);
+  });
 
 });
 
@@ -215,8 +240,20 @@ describe('filter method tests', () => {
     }
     let actual = list.filter(item => item === 1).length;
     let expected = 0;
-
     expect(actual).toBe(expected);
+
+  });
+
+  test('filter() should return a new list of even integers when filtering out odd integers', () => {
+    let list = new List();
+    for (let i = 0; i < 5; i++) {
+      list.push(i);
+
+    }
+    let actual = list.filter(item => item % 2 === 0);
+    expect(actual[0]).toBe(0);
+    expect(actual[2]).toBe(4);
+    expect(actual.length).toBe(3);
 
   });
 

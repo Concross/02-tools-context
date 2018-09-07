@@ -27,6 +27,21 @@ class List {
     return poppedItem;
   }
 
+  slice(begin = 0, end = this.length) {
+    let output = new List();
+
+    if (end > this.length) {
+      end = this.length;
+    }
+    for (let i = begin; i < end; i++) {
+      output.push(this[i]);
+
+    }
+    output.length = end - begin;
+
+    return output;
+  }
+
   forEach(callback) {
     for (let i = 0; i < this.length; i++) {
       callback(this[i], i, this);
@@ -68,12 +83,12 @@ class List {
   filter(callback, thisArg) {
     let output = new List();
 
-    for (let i = 0; i < this.length - 1; i++) {
-      if (callback(this[i], i, this)) {
-        output.push(this[i]);
+    this.forEach((item, i) => {
+      if (callback(item, i)) {
+        output.push(item);
 
       }
-    }
+    });
 
     return output;
   }
