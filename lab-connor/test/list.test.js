@@ -157,6 +157,19 @@ describe('map method tests', () => {
 });
 
 describe('reduce method tests', () => {
+  test('reduce() should be able to return a sum of all items in a list of numbers', () => {
+    let list = new List();
+    for (let i = 0; i < 10; i++) {
+      list.push(i);
+
+    }
+
+    let actual = list.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    });
+    let expected = 45;
+    expect(actual).toBe(expected);
+  });
 
 });
 

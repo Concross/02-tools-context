@@ -43,6 +43,15 @@ class List {
 
     return output;
   }
+
+  reduce(callback, initialValue = 0) {
+    let accumulator = initialValue;
+    for (let i = 0; i < this.length; i++) {
+      accumulator = callback(accumulator, this[i], i, this);
+    }
+
+    return accumulator;
+  }
 }
 
 module.exports = List;
