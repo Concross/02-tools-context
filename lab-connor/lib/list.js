@@ -47,11 +47,11 @@ class List {
   reduce(callback, initialValue) {
 
     if (!this.length && !initialValue) {
-      throw TypeError;
+      throw new TypeError('TypeError');
 
     }
 
-    let accumulator = initialValue;
+    let accumulator = initialValue || 0;
     for (let i = 0; i < this.length; i++) {
       accumulator = callback(accumulator, this[i], i, this);
 

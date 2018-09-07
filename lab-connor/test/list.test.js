@@ -177,8 +177,10 @@ describe('reduce method tests', () => {
 
     let reducer = jest.fn();
 
-    expect(list.reduce(reducer)).toThrow(TypeError);
-  })
+    expect(() => {
+      list.reduce(reducer);
+    }).toThrow();
+  });
 
 });
 
