@@ -179,7 +179,9 @@ describe('reduce method tests', () => {
 
     expect(() => {
       list.reduce(reducer);
+
     }).toThrow();
+
   });
 
   test('reduce() should just return the initial value when passed an empty list and an initial value without calling the callback', () => {
@@ -189,7 +191,19 @@ describe('reduce method tests', () => {
     let reducer = jest.fn();
     expect(list.reduce(reducer, 5)).toBe(initValue);
     expect(reducer).not.toHaveBeenCalled();
+
   });
+
+  test('reduce() should just return the solo value in the list when no initial value is provided without calling the callback', () => {
+    let list = new List();
+    list.push(5);
+
+    let reducer = jest.fn();
+    expect(list.reduce(reducer)).toBe(5);
+    expect(reducer).not.toHaveBeenCalled();
+
+  });
+
 
 });
 
